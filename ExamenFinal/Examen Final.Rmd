@@ -1,0 +1,143 @@
+---
+title: 'Examen Final Regresión Avanzada'
+date: " Martes 17 de diciembre del 2019"
+output: 
+  html_document:
+    number_sections: true
+    toc: true
+    theme: readable
+    highlight: haddock
+--- 
+***Alumnos:  
+Javier Valencia Goujon 123227  
+Alfie Sergio Gonzalez Salcedo 181574  
+Danahi Ayzailadema Ramos Martinez ?????*** 
+
+<center>
+# Proyecto: Análisis de tasas de suicidio globales de 1985 a 2016 {-}
+</center>
+# Introducción  
+**Inspiración del trabajo**   
+
+Los suicidios tienen un alto costo. Más de 800 000 personas mueren cada año por suicidio, y esta es la segunda causa principal de muerte entre personas de 15 a 29 años de edad. Hay indicios de que, por cada adulto que se suicidó, posiblemente más de otros 20 intentaron suicidarse. Los suicidios son prevenibles. Para que las respuestas nacionales sean eficaces, se necesita una estrategia integral multisectorial de prevención.
+
+En este trabajo nos proponemos analizar una base de datos sobre casos de suicidios en el mundo y comparar los datos socioeconómicos de cada país con las tasas de suicidios. 
+
+**Objetivos**
+Nos proponemos realizar un estudio para deterinar los factores que influyen en la tasa de suicidios  de las diferentes regiones del mundo. 
+Tenemos una hipótesis inicial en la cual planteamos XXXX y podemos descartar o aceptar con nuestro trabajo.  
+En este trabajo nos concentraremos en   
+
+Identificar que factores influyen   
+
+La base de datos que vamos a explorar en un consolidado de otros cuatro conjuntos de datos vinculados por tiempo y lugar ontenidos de diversas fuentes*, se constuyó con la finalidad de encontrar si existe un relación entre variables sociodemograficas y socioeconomicas con las tasa de suicidios a nivel pais, región o mundial.  
+
+
+La base de datos cuenta con 27,820 observaciones descritos en 12 variables:  
+1. country (país): variable categórica con 101 diferentes países   
+2. year (año): variable numérica que va desde 1985 hasta 2016  
+3. sex (sexo):variable categórica  
+4. age (años): rango de edad de los individuos de la muestra se dividen en 6 categorias (15-24 years, 25-34 years, 35-54 years, 5-14 years, 55-74 years, 75+ years)  
+5. suicides_no (numero de suicidos): variable numérica que indica el número de suicidios correspondiente al grupo poblacional en el tiempo.  
+6. population (población): variable numérica que indica la población del país   
+7. suicides/100k pop (suicidios por cada 100 mil habitantes): variable numérica que indica la tasa de suicidios por cada 100 mil habitantes.   
+8. country-year (país-año):interacción entre país y año  
+9. HDI for year (Índice de desarrollo humano): variable numérica que reporta el índice de desarrollo humano. Indicador del (0-1) que pondera nivel educativo, esperanza de vida, y estandar de vida.  
+10. gdp_for_year (\$)  (Producto Interno Bruto PIB): variable numérica que reporta el producto interno bruto por país.    
+11. gdp_per_capita (\$) (PIB per capita): variable numérica que reporta el PIB per capita por país  
+12. generation (Generación): variable categórica que reporta el grupo generacional de la población (Boomers, G.I. Generation, Generation X,	Generation Z,	Millenials,	Silent)  
+
+Content  
+This compiled dataset pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum.
+
+*References*
+United Nations Development Program. (2018). Human development index (HDI). Retrieved from [link](http://hdr.undp.org/en/indicators/137506)
+
+World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016. Retrieved from [link](http://databank.worldbank.org/data/source/world-development-indicators#)
+
+[Szamil]. (2017). Suicide in the Twenty-First Century [dataset]. Retrieved from [link](https://www.kaggle.com/szamil/suicide-in-the-twenty-first-century/notebook)
+
+World Health Organization. (2018). Suicide prevention. Retrieved from [link](http://www.who.int/mental_health/suicide-prevention/en/)
+
+Inspiration
+Suicide Prevention.
+
+
+![](C:/Users/valen/Documents/Maestria-Data-Science/Modelos Lineales/ExamenFinal/Imagenes/hdi.jpg)
+
+*FIG. 1-1 Human Development Index (HDI) factors*
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+** R Markdown **
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+** Including Plots**
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Análisis Exploratorio de los Datos (EDA)  
+
+
+## Análisis Exploratorio univariado  
+
+## Análisis Bivariado  
+
+## Análisis Multivariado  
+
+# Modelo
+```{r}
+library(DiagrammeR)
+grViz("
+digraph betabinom {
+
+  # a 'graph' statement
+  graph [overlap = true]
+
+  node [shape = box,penwidth = 0.1, fixedsize = true, fontsize = 9,
+        fontname = Helvetica, width = 0.2, height = 0.2]
+  AB[label = 'A,B']; 
+
+  node [shape = circle,
+        fixedsize = true, fontsize = 9,
+        fontname = Helvetica, width = 0.2] // sets as circles
+  mu[label = '&mu;']; theta[label = '&theta;']; y;
+
+  # several 'edge' statements
+  edge[color = grey, arrowsize = 0.5, penwidth = 0.5]
+  AB->mu; mu->theta; theta->y;
+}
+")
+
+```
+
+El modelo gráfico asociado (omitiendo la distribución de $\theta$) es:
+
+
+
+De esta manera, la probabilidad conjunta del modelo refleja una dependencia 
+entre los parámetros al mismo tiempo que permite variaciones entre los estudios. 
+Como resultado se estima una $\lambda_{j}$ diferente para cada estudio usando 
+información de todos.
+
+## Interpretación de resultados del modelo  
+
+# Conclusiones  
+
+# Bibliografía  
+
