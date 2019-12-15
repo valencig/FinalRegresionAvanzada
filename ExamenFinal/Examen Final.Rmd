@@ -11,7 +11,7 @@ output:
 ***Alumnos:  
 Javier Valencia Goujon 123227  
 Alfie Sergio Gonzalez Salcedo 181574  
-Danahi Ayzailadema Ramos Martinez ?????*** 
+Danahi Ayzailadema Ramos Martinez 150237 
 
 <center>
 # Proyecto: Análisis de tasas de suicidio globales de 1985 a 2016 {-}
