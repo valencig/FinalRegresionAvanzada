@@ -1,0 +1,55 @@
+---
+title: "Modelos"
+output: html_document
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+data <- read_csv("masterconsolidado.csv")
+#View(data)
+mexico <- filter(data, country == "Mexico")
+
+mexico <- filter(mexico, year > 1989)
+mexico <- filter(mexico, year < 2014)
+mexico <- mexico[,c(-1,-4,-7,-8,-9,-12,-13,-14,-15,-16,-18,-23,-24, -25, -26, -27, -28)]
+
+names(mexico) <- c("year", "sex", "suicides_no", "population", "gdp_for_year", "gdp_per_capita", "life_expectancy_years", "public_health_exp_GDP","share_whith_alcohol_disorders",  "share_whith_anxiety_disorders", "share_with_mental_disorders")
+
+mexico$life_expectancy_years <- as.double(mexico$life_expectancy_years)
+mexico$public_health_exp_GDP <- as.double(mexico$public_health_exp_GDP)
+mexico$share_whith_alcohol_disorders <- as.double(mexico$share_whith_alcohol_disorders)
+mexico$share_whith_anxiety_disorders <- as.double(mexico$share_whith_anxiety_disorders)
+mexico$share_with_mental_disorders <- as.numeric(unlist(mexico$share_with_mental_disorders))
+
+mexico <- mexico %>% group_by(year, sex) %>% summarise(suicides_no = sum(suicides_no), population = sum(population), gdp_for_year = mean(gdp_for_year), gdp_per_capita = mean(gdp_per_capita), life_expectancy_years = mean(life_expectancy_years),public_health_exp_GDP = mean(public_health_exp_GDP), share_whith_alcohol_disorders = mean(share_whith_alcohol_disorders), share_whith_anxiety_disorders = mean(share_whith_anxiety_disorders), share_with_mental_disorders = mean(share_with_mental_disorders) )
+
+
+
+
+
+
+```
+
+```{r}
+mexico_tidy <- pivot_wider(mexico, names_from = sex, 
+  values_from = population)
+mexico_tidy$female <- replace_na(mexico_tidy$female,0)
+mexico_tidy$male <- replace_na(mexico_tidy$male,0)
+
+
+mexico <- mexico_tidy %>% group_by(year) %>% summarise(suicides_no = sum(suicides_no), gdp_for_year = mean(gdp_for_year), gdp_per_capita = mean(gdp_per_capita), life_expectancy_years = mean(life_expectancy_years),public_health_exp_GDP = mean(public_health_exp_GDP), share_whith_alcohol_disorders = mean(share_whith_alcohol_disorders), share_whith_anxiety_disorders = mean(share_whith_anxiety_disorders), share_with_mental_disorders = mean(share_with_mental_disorders), female = sum(female), male = sum(male) )
+
+mexico <- mexico %>% mutate(population  = female + male)
+
+```
+
+
+```{r}
+plot_correlation(mexico)
+```
+
+
