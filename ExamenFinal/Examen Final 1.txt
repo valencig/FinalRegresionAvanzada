@@ -1,0 +1,18 @@
+model
+{
+#Likelihood
+for (i in 1:n) {
+  y[i] ~ dpois(mu[i])
+#  log(mu[i])<-alpha+beta[1]*x[i,1]+beta[2]*x[i,2]+beta[3]*x[i,3]
+  log(mu[i])<-alpha+beta[1]*x[i,1]+beta[2]*x[i,2]+beta[3]*x[i,3]+
+  beta[4]*x[i,4]+beta[5]*x[i,5]+beta[6]
+}
+
+#Priors 
+alpha ~ dnorm(0, 0.001)
+for(i in 1:k){beta[i] ~ dnorm(0, 0.001)}
+
+#Prediction 1
+for (i in 1:n) { yf[i] ~ dpois(mu[i]) }
+
+}
