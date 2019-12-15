@@ -48,17 +48,10 @@ La base de datos cuenta con 27,820 observaciones descritos en 12 variables:
 12. generation (Generación): variable categórica que reporta el grupo generacional de la población (Boomers, G.I. Generation, Generation X,	Generation Z,	Millenials,	Silent)
 13.male/female (hombre, mujer): poblaci[on de hombres y mujeres en el año correspondiente.  
 14. life_expectancy_years (esperanza de vida): cantidad de años en promedio que vive un miembro de la población.  
-15. public_health_exp_GDP: porcentaje de gasto del PIB en salud pública  
-16. share_whith_alcohol_disorders:  
-17. share_whith_anxiety_disorders:
-18. share_with_mental_disorders:
-
-[1] "year"                          "sex"                          
- [3] "suicides_no"                   "population"                   
- [5] "gdp_for_year"                  "gdp_per_capita"               
- [7] "life_expectancy_years"         "public_health_exp_GDP"        
- [9] "share_whith_alcohol_disorders" "share_whith_anxiety_disorders"
-[11] "share_with_mental_disorders"
+15. public_health_exp_GDP: porcentaje de gasto del PIB en salud pública  .  
+16. share_whith_alcohol_disorders: porcentaje de la población con alcoholismo.  
+17. share_whith_anxiety_disorders: porcentaje de la población con trastorno de ansiedad.  
+18. share_with_mental_disorders:porcentaje de la población con algun trastorno mental. 
 
 Content  
 This compiled dataset pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum.

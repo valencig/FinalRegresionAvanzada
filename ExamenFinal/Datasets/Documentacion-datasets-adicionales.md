@@ -1,4 +1,7 @@
-https://ourworldindata.org/mental-health#link-between-mental-health-and-suicide
+ligas utiles
+https://ourworldindata.org/mental-health#link-between-mental-health-and-suicide  
+https://databank.worldbank.org/source/world-development-indicators/Type/TABLE/preview/on
+
 # Documentacion Datasets adicionales
 
 ## share-with-alcohol-use-disorders

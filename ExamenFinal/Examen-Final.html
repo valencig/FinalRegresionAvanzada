@@ -2705,10 +2705,10 @@ summary {
 </ul>
 </div>
 
-<p><strong><em>Alumnos:<br />
+<p>***Alumnos:<br />
 Javier Valencia Goujon 123227<br />
 Alfie Sergio Gonzalez Salcedo 181574<br />
-Danahi Ayzailadema Ramos Martinez ?????</em></strong></p>
+Danahi Ayzailadema Ramos Martinez 150237</p>
 <center>
 <div id="proyecto-analisis-de-tasas-de-suicidio-globales-de-1985-a-2016" class="section level1 unnumbered">
 <h1>Proyecto: Análisis de tasas de suicidio globales de 1985 a 2016</h1>
@@ -2735,7 +2735,12 @@ En este trabajo nos concentraremos en</p>
 9. HDI for year (Índice de desarrollo humano): variable numérica que reporta el índice de desarrollo humano. Indicador del (0-1) que pondera nivel educativo, esperanza de vida, y estandar de vida.<br />
 10. gdp_for_year ($) (Producto Interno Bruto PIB): variable numérica que reporta el producto interno bruto por país.<br />
 11. gdp_per_capita ($) (PIB per capita): variable numérica que reporta el PIB per capita por país<br />
-12. generation (Generación): variable categórica que reporta el grupo generacional de la población (Boomers, G.I. Generation, Generation X, Generation Z, Millenials, Silent)</p>
+12. generation (Generación): variable categórica que reporta el grupo generacional de la población (Boomers, G.I. Generation, Generation X, Generation Z, Millenials, Silent) 13.male/female (hombre, mujer): poblaci[on de hombres y mujeres en el año correspondiente.<br />
+14. life_expectancy_years (esperanza de vida): cantidad de años en promedio que vive un miembro de la población.<br />
+15. public_health_exp_GDP: porcentaje de gasto del PIB en salud pública .<br />
+16. share_whith_alcohol_disorders: porcentaje de la población con alcoholismo.<br />
+17. share_whith_anxiety_disorders: porcentaje de la población con trastorno de ansiedad.<br />
+18. share_with_mental_disorders:porcentaje de la población con algun trastorno mental.</p>
 <p>Content<br />
 This compiled dataset pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum.</p>
 <p><em>References</em> United Nations Development Program. (2018). Human development index (HDI). Retrieved from <a href="http://hdr.undp.org/en/indicators/137506">link</a></p>
@@ -2784,7 +2789,7 @@ This compiled dataset pulled from four other datasets linked by time and place, 
 <a class="sourceLine" id="cb3-7" title="7"></a>
 <a class="sourceLine" id="cb3-8" title="8"><span class="st">  node [shape = box,penwidth = 0.1, fixedsize = true, fontsize = 9,</span></a>
 <a class="sourceLine" id="cb3-9" title="9"><span class="st">        fontname = Helvetica, width = 0.2, height = 0.2]</span></a>
-<a class="sourceLine" id="cb3-10" title="10"><span class="st">  AB[label = &#39;A,B&#39;]; </span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="st">  AB[label = &#39;A,B&#39;];</span></a>
 <a class="sourceLine" id="cb3-11" title="11"></a>
 <a class="sourceLine" id="cb3-12" title="12"><span class="st">  node [shape = circle,</span></a>
 <a class="sourceLine" id="cb3-13" title="13"><span class="st">        fixedsize = true, fontsize = 9,</span></a>
@@ -2796,8 +2801,8 @@ This compiled dataset pulled from four other datasets linked by time and place, 
 <a class="sourceLine" id="cb3-19" title="19"><span class="st">  AB-&gt;mu; mu-&gt;theta; theta-&gt;y;</span></a>
 <a class="sourceLine" id="cb3-20" title="20"><span class="st">}</span></a>
 <a class="sourceLine" id="cb3-21" title="21"><span class="st">&quot;</span>)</a></code></pre></div>
-<div id="htmlwidget-ae16492708b7583d3416" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ae16492708b7583d3416">{"x":{"diagram":"\ndigraph betabinom {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  node [shape = box,penwidth = 0.1, fixedsize = true, fontsize = 9,\n        fontname = Helvetica, width = 0.2, height = 0.2]\n  AB[label = \"A,B\"]; \n\n  node [shape = circle,\n        fixedsize = true, fontsize = 9,\n        fontname = Helvetica, width = 0.2] // sets as circles\n  mu[label = \"&mu;\"]; theta[label = \"&theta;\"]; y;\n\n  # several \"edge\" statements\n  edge[color = grey, arrowsize = 0.5, penwidth = 0.5]\n  AB->mu; mu->theta; theta->y;\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d8c83f6d273422110a34" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d8c83f6d273422110a34">{"x":{"diagram":"\ndigraph betabinom {\n\n  # a \"graph\" statement\n  graph [overlap = true]\n\n  node [shape = box,penwidth = 0.1, fixedsize = true, fontsize = 9,\n        fontname = Helvetica, width = 0.2, height = 0.2]\n  AB[label = \"A,B\"];\n\n  node [shape = circle,\n        fixedsize = true, fontsize = 9,\n        fontname = Helvetica, width = 0.2] // sets as circles\n  mu[label = \"&mu;\"]; theta[label = \"&theta;\"]; y;\n\n  # several \"edge\" statements\n  edge[color = grey, arrowsize = 0.5, penwidth = 0.5]\n  AB->mu; mu->theta; theta->y;\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>El modelo gráfico asociado (omitiendo la distribución de <span class="math inline">\(\theta\)</span>) es:</p>
 <p>De esta manera, la probabilidad conjunta del modelo refleja una dependencia entre los parámetros al mismo tiempo que permite variaciones entre los estudios. Como resultado se estima una <span class="math inline">\(\lambda_{j}\)</span> diferente para cada estudio usando información de todos.</p>
 <div id="interpretacion-de-resultados-del-modelo" class="section level2">
