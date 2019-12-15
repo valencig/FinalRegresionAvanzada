@@ -1,0 +1,35 @@
+model
+{
+#Likelihood
+for (i in 1:n) {
+	y[i] ~ dpois(lamda[i])
+	lambda[i]<-theta[i]*x[i,5]
+	theta[i] ~ dbeta(a[i],b[i])
+	a[i]<-phy*mu[i]
+	b[i]<-phy*(1-mu[i])
+	eta[i]<-alpha+country[x[i,1]]+sex[x[i,2]]+age*x[i,3]+population*x[i,4]+gdp_for_year*x[i,5]+gdp_per_capita*x[i,6]+generation[x[i,7]]
+	mu[i]<-exp(eta[i])/(1+exp(eta[i]))
+}
+
+#Priors 
+alpha ~ dnorm(0, 0.001)
+for(i in 1:101){country[i] ~ dnorm(0, 0.001)}
+for(i in 1:2){sex[i] ~ dnorm(0, 0.001)}
+age ~ dnorm(0, 0.001)
+population ~ dnorm(0, 0.001)
+gdp_for_year ~ dnorm(0, 0.001)
+gdp_per_capita ~ dnorm(0, 0.001)
+for(i in 1:6){generation[i] ~ dnorm(0, 0.001)}
+for (j in 1:n) { theta[j] ~ dgamma(0.001,0.001) }
+
+phy ~ dbeta(1,1)
+
+#Estimability constraints
+alpha.est<-alpha+mean(country[])+mean(sex[])+mean(generation[])
+for(i in 1:101){country.est[i]<-country[i]-mean(country[])}
+for(i in 1:2){sex.est[i]<-sex[i]-mean(sex[])}
+for(i in 1:6){generation.est[i]<-generation[i]-mean(generation[])}
+
+#Prediction 1
+for (i in 1:n) { yf[i] ~ dpois(mu[i]) }
+}
