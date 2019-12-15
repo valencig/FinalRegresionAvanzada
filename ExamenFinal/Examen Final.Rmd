@@ -1,17 +1,17 @@
 ---
 title: 'Examen Final Regresión Avanzada'
 date: " Martes 17 de diciembre del 2019"
-output: 
+output:
   html_document:
     number_sections: true
     toc: true
     theme: readable
     highlight: haddock
---- 
+---
 ***Alumnos:  
 Javier Valencia Goujon 123227  
 Alfie Sergio Gonzalez Salcedo 181574  
-Danahi Ayzailadema Ramos Martinez 150237 
+Danahi Ayzailadema Ramos Martinez 150237
 
 <center>
 # Proyecto: Análisis de tasas de suicidio globales de 1985 a 2016 {-}
@@ -21,10 +21,10 @@ Danahi Ayzailadema Ramos Martinez 150237
 
 Los suicidios tienen un alto costo. Más de 800 000 personas mueren cada año por suicidio, y esta es la segunda causa principal de muerte entre personas de 15 a 29 años de edad. Hay indicios de que, por cada adulto que se suicidó, posiblemente más de otros 20 intentaron suicidarse. Los suicidios son prevenibles. Para que las respuestas nacionales sean eficaces, se necesita una estrategia integral multisectorial de prevención.
 
-En este trabajo nos proponemos analizar una base de datos sobre casos de suicidios en el mundo y comparar los datos socioeconómicos de cada país con las tasas de suicidios. 
+En este trabajo nos proponemos analizar una base de datos sobre casos de suicidios en el mundo y comparar los datos socioeconómicos de cada país con las tasas de suicidios.
 
 **Objetivos**
-Nos proponemos realizar un estudio para deterinar los factores que influyen en la tasa de suicidios  de las diferentes regiones del mundo. 
+Nos proponemos realizar un estudio para deterinar los factores que influyen en la tasa de suicidios  de las diferentes regiones del mundo.
 Tenemos una hipótesis inicial en la cual planteamos XXXX y podemos descartar o aceptar con nuestro trabajo.  
 En este trabajo nos concentraremos en   
 
@@ -45,7 +45,20 @@ La base de datos cuenta con 27,820 observaciones descritos en 12 variables:
 9. HDI for year (Índice de desarrollo humano): variable numérica que reporta el índice de desarrollo humano. Indicador del (0-1) que pondera nivel educativo, esperanza de vida, y estandar de vida.  
 10. gdp_for_year (\$)  (Producto Interno Bruto PIB): variable numérica que reporta el producto interno bruto por país.    
 11. gdp_per_capita (\$) (PIB per capita): variable numérica que reporta el PIB per capita por país  
-12. generation (Generación): variable categórica que reporta el grupo generacional de la población (Boomers, G.I. Generation, Generation X,	Generation Z,	Millenials,	Silent)  
+12. generation (Generación): variable categórica que reporta el grupo generacional de la población (Boomers, G.I. Generation, Generation X,	Generation Z,	Millenials,	Silent)
+13.male/female (hombre, mujer): poblaci[on de hombres y mujeres en el año correspondiente.  
+14. life_expectancy_years (esperanza de vida): cantidad de años en promedio que vive un miembro de la población.  
+15. public_health_exp_GDP: porcentaje de gasto del PIB en salud pública  
+16. share_whith_alcohol_disorders:  
+17. share_whith_anxiety_disorders:
+18. share_with_mental_disorders:
+
+[1] "year"                          "sex"                          
+ [3] "suicides_no"                   "population"                   
+ [5] "gdp_for_year"                  "gdp_per_capita"               
+ [7] "life_expectancy_years"         "public_health_exp_GDP"        
+ [9] "share_whith_alcohol_disorders" "share_whith_anxiety_disorders"
+[11] "share_with_mental_disorders"
 
 Content  
 This compiled dataset pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum.
@@ -111,7 +124,7 @@ digraph betabinom {
 
   node [shape = box,penwidth = 0.1, fixedsize = true, fontsize = 9,
         fontname = Helvetica, width = 0.2, height = 0.2]
-  AB[label = 'A,B']; 
+  AB[label = 'A,B'];
 
   node [shape = circle,
         fixedsize = true, fontsize = 9,
@@ -130,9 +143,9 @@ El modelo gráfico asociado (omitiendo la distribución de $\theta$) es:
 
 
 
-De esta manera, la probabilidad conjunta del modelo refleja una dependencia 
-entre los parámetros al mismo tiempo que permite variaciones entre los estudios. 
-Como resultado se estima una $\lambda_{j}$ diferente para cada estudio usando 
+De esta manera, la probabilidad conjunta del modelo refleja una dependencia
+entre los parámetros al mismo tiempo que permite variaciones entre los estudios.
+Como resultado se estima una $\lambda_{j}$ diferente para cada estudio usando
 información de todos.
 
 ## Interpretación de resultados del modelo  
@@ -140,4 +153,3 @@ información de todos.
 # Conclusiones  
 
 # Bibliografía  
-
